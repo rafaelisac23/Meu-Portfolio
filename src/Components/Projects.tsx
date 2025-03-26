@@ -63,7 +63,7 @@ export const Projects = () => {
                 </div>
 
                 <div className="flex flex-col justify-center items-center gap-4 p-4">
-                  <p className="text-lg  font-Montserrat text-white text-center text-shadow  w-full">
+                  <p className="text-2xl  font-Montserrat text-white text-center text-shadow  w-full">
                     {item.titulo}
                   </p>
 
@@ -80,7 +80,7 @@ export const Projects = () => {
                   </div>
 
                   <button
-                    className="bg-blue-800 text-white text-lg px-6 py-1 rounded-xl my-4"
+                    className="bg-blue-700 text-white text-lg px-6 py-1 rounded-xl my-4 text-background"
                     onClick={() => OpenModal(item.titulo, item.texto)}
                   >
                     Leia Mais

@@ -14,7 +14,7 @@ export const HardSkils = () => {
         transition={{ duration: 2.0, ease: "easeOut" }}
         viewport={{ once: true }} // Garante que a animação ocorra apenas uma vez
       >
-        <div className="flex-wrap w-full flex justify-center items-center gap-2 text-white my-10 ">
+        <div className="flex-wrap w-full flex justify-center items-center gap-2 text-white my-10 px-4 ">
           {HardIconsData.map((item) => (
             <HardIcons key={item.id} icon={item.icon}></HardIcons>
           ))}

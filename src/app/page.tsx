@@ -1,101 +1,195 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { AboutMe } from "@/Components/AboutMe";
+import { Experience } from "@/Components/Experience";
+import { Contact } from "@/Components/Contact";
+import { HardSkils } from "@/Components/HardSkils";
+import { Projects } from "@/Components/Projects";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+
+const page = () => {
+  /*State para guaradar o tamanho da tela*/
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+  /*FIM State para guaradar o tamanho da tela*/
+
+  //Função e state para exibir menu quando estiver em celular
+  const [hiddenMenu, setHiddenMenu] = useState(true);
+  const handdleHidenMenu = () => {
+    if (hiddenMenu === true) {
+      setHiddenMenu(false);
+    } else {
+      setHiddenMenu(true);
+    }
+  };
+  //FIM Função e state para exibir menu quando estiver em celular
+
+  //ver o tamanho da tela
+  useEffect(() => {
+    // Verifica se o código está sendo executado no cliente (para evitar erro de SSR)
+    if (typeof window !== "undefined") {
+      // Função que será chamada quando a tela for redimensionada
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+
+      // Define a largura inicial da tela assim que o componente for montado
+      setWindowWidth(window.innerWidth);
+
+      // Adiciona o event listener para o evento resize
+      window.addEventListener("resize", handleResize);
+
+      // Limpeza do listener ao desmontar o componente
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
+
+  //fim ver o tamanho da tela
+
+  //inicio interação menu
+
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const hardRef = useRef<HTMLDivElement>(null);
+  const expeRef = useRef<HTMLDivElement>(null);
+  const projRef = useRef<HTMLDivElement>(null);
+  const contacRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="">
+      <nav className="w-full  flex flex-col mb-10 ">
+        {hiddenMenu && <div className="hidden"></div>}
+        {!hiddenMenu && windowWidth < 1024 && (
+          <motion.div
+            className="flex-1 flex-wrap flex flex-col border border-black bg-black gap-2 py-2 font-Montserrat"
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "linear" }}
+          >
+            <button
+              className="text-white uppercase "
+              onClick={() => scrollToSection(aboutRef)}
+            >
+              Sobre
+            </button>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <button
+              className="text-white uppercase"
+              onClick={() => scrollToSection(hardRef)}
+            >
+              Hard Skills
+            </button>
+            <button
+              className="text-white uppercase"
+              onClick={() => scrollToSection(expeRef)}
+            >
+              Experiências
+            </button>
+            <button
+              className="text-white uppercase"
+              onClick={() => scrollToSection(projRef)}
+            >
+              Projeto
+            </button>
+            <button
+              className="text-white uppercase"
+              onClick={() => scrollToSection(contacRef)}
+            >
+              Contato
+            </button>
+          </motion.div>
+        )}
+
+        {windowWidth >= 1024 && (
+          <motion.div
+            className="fixed top-0 left-0 w-full colorMenu p-4 flex  gap-6 z-10"
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "linear" }}
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="flex-1 flex items-center text-mintcream gap-2">
+              <img
+                src="/images/EU.jpg"
+                alt=""
+                className="w-8 h-8 rounded-full "
+              />
+              <div className="text">Rafael Isac | Desenvolvedor Web</div>
+            </div>
+
+            <div className="flex items-center gap-4 font-Montserrat text-mintcream">
+              <button
+                className="text-white uppercase"
+                onClick={() => scrollToSection(aboutRef)}
+              >
+                Sobre
+              </button>
+
+              <button
+                className="text-white uppercase"
+                onClick={() => scrollToSection(hardRef)}
+              >
+                Hard Skills
+              </button>
+              <button
+                className="text-white uppercase"
+                onClick={() => scrollToSection(expeRef)}
+              >
+                Experiências
+              </button>
+              <button
+                className="text-white uppercase"
+                onClick={() => scrollToSection(projRef)}
+              >
+                Projeto
+              </button>
+              <button
+                className="text-white uppercase"
+                onClick={() => scrollToSection(contacRef)}
+              >
+                Contato
+              </button>
+            </div>
+          </motion.div>
+        )}
+
+        <div
+          className="flex justify-end items-center"
+          onClick={handdleHidenMenu}
+        >
+          <button className="mt-2 mr-2 border border-sky-600 w-12 h-12 flex-col items-center justify-center rounded-md lg:hidden">
+            <div className=" border border-sky-600 w-8 mx-2"></div>
+            <div className=" border border-sky-600 w-8 my-2 mx-2"></div>
+            <div className=" border border-sky-600 w-8 mx-2"></div>
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </nav>
+
+      <div ref={aboutRef} className="pt-10">
+        <AboutMe />
+      </div>
+
+      <div ref={hardRef} className="pt-12">
+        <HardSkils />
+      </div>
+
+      <div ref={expeRef} className="pt-12">
+        <Experience />
+      </div>
+
+      <div ref={projRef} className="pt-12">
+        <Projects />
+      </div>
+
+      <div ref={contacRef} className="pt-12">
+        <Contact />
+      </div>
     </div>
   );
-}
+};
+
+export default page;

@@ -1,0 +1,10 @@
+
+/*Fonte customizada*/
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../public/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype'),
+         url('../public/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+/*Fonte customizada*/

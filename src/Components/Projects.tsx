@@ -53,7 +53,7 @@ export const Projects = () => {
         <div className="mt-20 min-w-40 max-w-96 ">
           <Slider {...settings}>
             {dataProj.map((item) => (
-              <div className="  text-black rounded-xl bg-blue-600  ">
+              <div className="  text-black rounded-xl">
                 <div className=" rounded-xl bg-blue-600 flex justify-center items-center p-2 ">
                   <img
                     src={item.img}

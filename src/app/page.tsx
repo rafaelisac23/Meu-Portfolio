@@ -63,47 +63,64 @@ const page = () => {
   return (
     <div className="">
       <nav className="w-full  flex flex-col mb-10 ">
-        {hiddenMenu && <div className="hidden"></div>}
-        {!hiddenMenu && windowWidth < 1024 && (
-          <motion.div
-            className="flex-1 flex-wrap flex flex-col border border-black bg-black gap-2 py-2 font-Montserrat"
-            initial={{ opacity: 0, y: -50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "linear" }}
-          >
-            <button
-              className="text-white uppercase "
-              onClick={() => scrollToSection(aboutRef)}
-            >
-              Sobre
-            </button>
+        <div className="flex flex-col-reverse justify-end items-center">
+          {hiddenMenu && <div className="hidden"></div>}
+          {/*Menu hamburguer*/}
 
-            <button
-              className="text-white uppercase"
-              onClick={() => scrollToSection(hardRef)}
+          {!hiddenMenu && windowWidth < 1024 && (
+            <motion.div
+              className="flex justify-end pr-12 w-full  bg-black gap-2 py-2 font-Montserrat  "
+              initial={{ opacity: 0, scaleY: 0 }} // Começa "fechado" no eixo Y
+              whileInView={{ opacity: 1, scaleY: 1 }} // Expande no eixo Y, como se estivesse "abrindo"
+              transition={{ duration: 0.8, ease: "easeOut" }} // Duração e suavidade da animação
             >
-              Hard Skills
+              <div className="border gap-2 border-blue-600 p-2 rounded-2xl flex flex-col">
+                <button
+                  className="text-white uppercase "
+                  onClick={() => scrollToSection(aboutRef)}
+                >
+                  Sobre
+                </button>
+
+                <button
+                  className="text-white uppercase"
+                  onClick={() => scrollToSection(hardRef)}
+                >
+                  Hard Skills
+                </button>
+                <button
+                  className="text-white uppercase"
+                  onClick={() => scrollToSection(expeRef)}
+                >
+                  Experiências
+                </button>
+                <button
+                  className="text-white uppercase"
+                  onClick={() => scrollToSection(projRef)}
+                >
+                  Projeto
+                </button>
+                <button
+                  className="text-white uppercase"
+                  onClick={() => scrollToSection(contacRef)}
+                >
+                  Contato
+                </button>
+              </div>
+            </motion.div>
+          )}
+
+          <div
+            className="flex justify-end items-center w-full"
+            onClick={handdleHidenMenu}
+          >
+            <button className="mt-2 mr-2 border border-sky-600 w-12 h-12 flex-col items-center justify-center rounded-md lg:hidden">
+              <div className=" border border-sky-600 w-8 mx-2"></div>
+              <div className=" border border-sky-600 w-8 my-2 mx-2"></div>
+              <div className=" border border-sky-600 w-8 mx-2"></div>
             </button>
-            <button
-              className="text-white uppercase"
-              onClick={() => scrollToSection(expeRef)}
-            >
-              Experiências
-            </button>
-            <button
-              className="text-white uppercase"
-              onClick={() => scrollToSection(projRef)}
-            >
-              Projeto
-            </button>
-            <button
-              className="text-white uppercase"
-              onClick={() => scrollToSection(contacRef)}
-            >
-              Contato
-            </button>
-          </motion.div>
-        )}
+          </div>
+        </div>
 
         {windowWidth >= 1024 && (
           <motion.div
@@ -156,36 +173,25 @@ const page = () => {
             </div>
           </motion.div>
         )}
-
-        <div
-          className="flex justify-end items-center"
-          onClick={handdleHidenMenu}
-        >
-          <button className="mt-2 mr-2 border border-sky-600 w-12 h-12 flex-col items-center justify-center rounded-md lg:hidden">
-            <div className=" border border-sky-600 w-8 mx-2"></div>
-            <div className=" border border-sky-600 w-8 my-2 mx-2"></div>
-            <div className=" border border-sky-600 w-8 mx-2"></div>
-          </button>
-        </div>
       </nav>
 
       <div ref={aboutRef} className="pt-10">
         <AboutMe />
       </div>
 
-      <div ref={hardRef} className="pt-12">
+      <div ref={hardRef} className="pt-10">
         <HardSkils />
       </div>
 
-      <div ref={expeRef} className="pt-12">
+      <div ref={expeRef} className="pt-10">
         <Experience />
       </div>
 
-      <div ref={projRef} className="pt-12">
+      <div ref={projRef} className="pt-10">
         <Projects />
       </div>
 
-      <div ref={contacRef} className="pt-12">
+      <div ref={contacRef} className="pt-10">
         <Contact />
       </div>
     </div>

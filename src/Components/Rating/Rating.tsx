@@ -8,7 +8,7 @@ export const Rating = ({ data }: Props) => {
   if (data.rating > 5) data.rating = 5;
   if (data.rating < 0) data.rating = 0;
 
-  const emojis = ["🔘", "⚪", "⚪", "⚪", "⚪", "⚪"];
+  const emojis = ["🔘", "⭐", "⭐", "⭐", "⭐", "⭐"];
   const notaInt = Math.floor(data.rating);
 
   const stars = emojis[notaInt].repeat(notaInt) + emojis[0].repeat(5 - notaInt);

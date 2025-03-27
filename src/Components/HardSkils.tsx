@@ -21,7 +21,7 @@ export const HardSkils = () => {
         </div>
       </motion.div>
 
-      <div className="mt-10  w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-items-center  gap-3 ">
+      <div className="mt-10  w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-items-center  gap-10 ">
         {dataHardSkills.map((item) => (
           <Rating key={item.id} data={item} />
         ))}

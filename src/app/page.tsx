@@ -7,6 +7,7 @@ import { HardSkils } from "@/Components/HardSkils";
 import { Projects } from "@/Components/Projects";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { Complements } from "@/Components/Complements";
 
 const page = () => {
   /*State para guaradar o tamanho da tela*/
@@ -55,6 +56,7 @@ const page = () => {
   const expeRef = useRef<HTMLDivElement>(null);
   const projRef = useRef<HTMLDivElement>(null);
   const contacRef = useRef<HTMLDivElement>(null);
+  const compRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -175,12 +177,16 @@ const page = () => {
         )}
       </nav>
 
-      <div ref={aboutRef} className="pt-10">
+      <div ref={aboutRef} className="pt-1">
         <AboutMe />
       </div>
 
       <div ref={hardRef} className="pt-10">
         <HardSkils />
+      </div>
+
+      <div ref={compRef} className="pt-10">
+        <Complements />
       </div>
 
       <div ref={expeRef} className="pt-10">

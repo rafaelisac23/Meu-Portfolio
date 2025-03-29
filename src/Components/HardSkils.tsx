@@ -21,11 +21,17 @@ export const HardSkils = () => {
         </div>
       </motion.div>
 
-      <div className="mt-10  w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-items-center  gap-10 ">
+      <motion.div
+        className="mt-10  w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-items-center  gap-10 "
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 2.0, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         {dataHardSkills.map((item) => (
           <Rating key={item.id} data={item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

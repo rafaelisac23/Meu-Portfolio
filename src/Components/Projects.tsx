@@ -87,21 +87,25 @@ export const Projects = () => {
                   </button>
 
                   <div className="flex gap-2">
-                    <a
-                      href=""
-                      target="_blank"
-                      className="bg-blue-700 text-white px-6 py-2 rounded-xl text-background texte-center hover:bg-blue-800"
-                    >
-                      GITHUB
-                    </a>
+                    {item.link.map((item) => (
+                      <>
+                        <a
+                          href={item.git}
+                          target="_blank"
+                          className="bg-blue-700 text-white px-6 py-2 rounded-xl text-background texte-center hover:bg-blue-800"
+                        >
+                          GITHUB
+                        </a>
 
-                    <a
-                      href=""
-                      target="_blank"
-                      className=" bg-blue-700 text-white px-6 py-2 rounded-xl text-background texte-center hover:bg-blue-800"
-                    >
-                      DEPLOY
-                    </a>
+                        <a
+                          href={item.deploy}
+                          target="_blank"
+                          className=" bg-blue-700 text-white px-6 py-2 rounded-xl text-background texte-center hover:bg-blue-800"
+                        >
+                          DEPLOY
+                        </a>
+                      </>
+                    ))}
                   </div>
                 </div>
               </div>

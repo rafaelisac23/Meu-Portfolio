@@ -53,7 +53,7 @@ export const AboutMe = () => {
                 conquistas."
               </h2>
 
-              <p className="mx-20 text-shadow mt-4 min-w-64 text-mintcream text-wrap text-justify  text-base font-Montserrat sm:text-lg md:text-md">
+              <p className="mx-12 sm:mx-20 text-shadow mt-4 min-w-64 text-mintcream text-wrap text-justify  text-base font-Montserrat sm:text-lg md:text-md">
                 Prazer, sou
                 <TypeAnimation
                   className="text-shadow"
@@ -88,7 +88,7 @@ export const AboutMe = () => {
           viewport={{ once: true }} // Garante que a animação ocorra apenas uma vez
           href="/cv/rafael-isac.pdf"
           download="rafael-isac.pdf"
-          className="text-white font-bold font-Montserrat  w-36 mt-8 mx-20 py-4 px-4 
+          className="text-white font-bold font-Montserrat  w-36 mt-8 ml-12 sm:mx-20 py-4 px-4 
         rounded-md bg-gradient-to-t from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700"
         >
           Dowload CV

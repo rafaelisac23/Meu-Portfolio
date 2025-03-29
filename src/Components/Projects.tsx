@@ -49,7 +49,13 @@ export const Projects = () => {
         Meus Projetos
       </motion.h2>
 
-      <div className="w-3/4 m-auto flex justify-center items-center">
+      <motion.div
+        className="w-3/4 m-auto flex justify-center items-center"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 2.0, ease: "easeIn" }}
+        viewport={{ once: true }} // Garante que a animação ocorra apenas uma vez
+      >
         <div className="mt-20 min-w-40 max-w-96 ">
           <Slider {...settings}>
             {dataProj.map((item) => (
@@ -146,7 +152,7 @@ export const Projects = () => {
           )}
         </AnimatePresence>
         {/*Modal*/}
-      </div>
+      </motion.div>
     </div>
   );
 };

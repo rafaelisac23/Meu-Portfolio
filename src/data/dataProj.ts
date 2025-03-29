@@ -21,7 +21,7 @@ export const dataProj: CarouselDataType[] = [
   },
   {
     titulo: "Loja Shadcn - em produção",
-    img: "/images/atacadinho.png",
+    img: "/images/lojashadcn.png",
     texto:
       "Este projeto veio com a intenção de praticar meus conhecimentos adquiridos com a ferramenta ShadCn,e tambem aumentar um pouco os meus conhecimentos sobre Front-End",
     languages: [

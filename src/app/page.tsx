@@ -154,6 +154,13 @@ const page = () => {
               >
                 Hard Skills
               </button>
+
+              <button
+                className="text-white uppercase"
+                onClick={() => scrollToSection(compRef)}
+              >
+                Complementos
+              </button>
               <button
                 className="text-white uppercase"
                 onClick={() => scrollToSection(expeRef)}
@@ -177,7 +184,7 @@ const page = () => {
         )}
       </nav>
 
-      <div ref={aboutRef} className="pt-1">
+      <div ref={aboutRef} className="pt-1 md:pt-10">
         <AboutMe />
       </div>
 

@@ -71,7 +71,7 @@ export const Projects = () => {
                     {item.languages.map((item) => (
                       <p
                         key={item.id}
-                        className="font-Montserrat text-sm"
+                        className="font-Montserrat text-sm sm:text-lg"
                         style={{ color: `${item.color}` }}
                       >
                         #{item.language}
@@ -80,11 +80,29 @@ export const Projects = () => {
                   </div>
 
                   <button
-                    className="bg-blue-700 text-white text-lg px-6 py-1 rounded-xl my-4 text-background"
+                    className="bg-blue-700 text-white px-6 py-2 rounded-xl text-background texte-center hover:bg-blue-800"
                     onClick={() => OpenModal(item.titulo, item.texto)}
                   >
                     Leia Mais
                   </button>
+
+                  <div className="flex gap-2">
+                    <a
+                      href=""
+                      target="_blank"
+                      className="bg-blue-700 text-white px-6 py-2 rounded-xl text-background texte-center hover:bg-blue-800"
+                    >
+                      GITHUB
+                    </a>
+
+                    <a
+                      href=""
+                      target="_blank"
+                      className=" bg-blue-700 text-white px-6 py-2 rounded-xl text-background texte-center hover:bg-blue-800"
+                    >
+                      DEPLOY
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

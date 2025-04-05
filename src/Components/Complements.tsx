@@ -25,7 +25,13 @@ export const Complements = () => {
       </div>
       {/* fim titulo Cursos*/}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 w-full p-2  text-center place-items-center gap-4 font-Montserrat text-white mt-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeIn" }}
+        viewport={{ once: true }}
+        className="grid grid-cols-1 sm:grid-cols-2 w-full p-2  text-center place-items-center gap-4 font-Montserrat text-white mt-10"
+      >
         <div>
           <span className="font-bold text-lg">HTML e Css</span> - B7WEB -
           Duração: 10 horas
@@ -62,7 +68,7 @@ export const Complements = () => {
           <span className="font-bold text-lg">Amazom Aws Cloud</span> - Duração:
           Cursando
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

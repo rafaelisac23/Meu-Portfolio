@@ -63,7 +63,7 @@ const page = () => {
   };
 
   return (
-    <div className="">
+    <div className="text-white">
       <nav className="w-full  flex flex-col mb-10 ">
         <div className="flex flex-col-reverse justify-end items-center">
           {hiddenMenu && <div className="hidden"></div>}

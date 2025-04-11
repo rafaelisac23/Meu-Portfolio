@@ -15,4 +15,5 @@ export const HardIconsData: HardIconType[] = [
   { id: 10, icon: "/images/hardicons/Bootstrap.png" },
   { id: 11, icon: "/images/hardicons/aws.png" },
   { id: 12, icon: "/images/hardicons/github.png" },
+  { id: 13, icon: "/images/hardicons/Next.svg" },
 ];

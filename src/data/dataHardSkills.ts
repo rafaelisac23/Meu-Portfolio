@@ -41,4 +41,9 @@ export const dataHardSkills: RatingType[] = [
     nameSkill: "INGLÊS",
     rating: 2,
   },
+  {
+    id: 9,
+    nameSkill: "NEXT",
+    rating: 3,
+  },
 ];

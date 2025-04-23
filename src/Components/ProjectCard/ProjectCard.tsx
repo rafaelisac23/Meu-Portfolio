@@ -10,7 +10,10 @@ export const ProjectCard = ({ item }: Props) => {
     <div className="w-[298px] min-h-96 bg-cerulean flex py-2 justify-center items-center rounded-2xl text-white">
       <div className="w-[286px] min-h-96 bg-black p-2 flex flex-col items-center rounded-2xl">
         <div className="w-[263px] flex flex-col justify-center mt-2 ">
-          <img src={item.img} alt="" className="rounded-lg" />
+          <video autoPlay loop muted playsInline className="rounded-lg">
+            <source src={item.img} type="video/mp4" />
+            Seu navegador não suporta o elemento de vídeo
+          </video>
           <h1 className="text-start mt-6 font-Montserrat font-bold text-xl">
             {item.titulo}
           </h1>
